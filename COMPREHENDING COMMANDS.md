@@ -1,4 +1,4 @@
-** COMPREHENDING COMMANDS**
+**COMPREHENDING COMMANDS**
 
 ***1.cat:not the pet, but the command!***
 
