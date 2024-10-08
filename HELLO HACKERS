@@ -1,2 +1,14 @@
-##1.Intro to Commands##
+#HELLO HACKERS
 
+###1.Intro to Commands
+
+In order to complete this challenge, "hello" command was required to be executed. This command gave the flag required as an output.
+
+``` bash
+Connected!
+hacker@hello~intro-to-commands:~$ whoami
+hacker
+hacker@hello~intro-to-commands:~$ hello
+Success! Here is your flag:
+pwn.college{YkroVw7CVlDHQAYBwjzirqhm6Ay.ddjNyUDLwQDO0czW}
+```
