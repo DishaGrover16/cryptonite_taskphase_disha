@@ -104,7 +104,7 @@ Here is your flag:
 pwn.college{oHTmmg4UlzAOyluXPy10iEpSatD.dlDN1QDLwQDO0czW}
 ```
 
-***7. explicit relative paths, from /**
+***7. explicit relative paths, from /***
 
 . represents the current working directory and relative paths are based on the current working directories. Thus the command to be implemented was ./challenge/run in order to get the flag.
 
@@ -118,7 +118,7 @@ Here is your flag:
 pwn.college{shGYnPZOHCI2CM1OSmX1aaHck1D.dBTN1QDLwQDO0czW}
 ```
 
-***8.implicit relative path
+***8.implicit relative path***
 
 As we know that Linux explicitly avoids automatically looking in the current directory when you provide a "naked" path. Thus to launch run command in this case, specifying a challenge directory was important. Moreover since . represents a current directory, therefore to launch run in /challenge directory, the command ./run can be put to use in order to get the flag.
 
