@@ -103,3 +103,50 @@ challenge/run is a relative path, invoked from the right directory!
 Here is your flag:
 pwn.college{oHTmmg4UlzAOyluXPy10iEpSatD.dlDN1QDLwQDO0czW}
 ```
+
+***7. explicit relative paths, from /**
+
+. represents the current working directory and relative paths are based on the current working directories. Thus the command to be implemented was ./challenge/run in order to get the flag.
+
+```
+Connected!
+hacker@paths~explicit-relative-paths-from-:~$ cd /
+hacker@paths~explicit-relative-paths-from-:/$ ./challenge/run
+Correct!!!
+./challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{shGYnPZOHCI2CM1OSmX1aaHck1D.dBTN1QDLwQDO0czW}
+```
+
+***8.implicit relative path
+
+As we know that Linux explicitly avoids automatically looking in the current directory when you provide a "naked" path. Thus to launch run command in this case, specifying a challenge directory was important. Moreover since . represents a current directory, therefore to launch run in /challenge directory, the command ./run can be put to use in order to get the flag.
+
+```
+Connected!
+hacker@paths~implicit-relative-path:~$ cd /challenge
+hacker@paths~implicit-relative-path:/challenge$ ./run
+Correct!!!
+./run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{oolCmCTQqDMp5ebp8Bd3oNZ3YgU.dFTN1QDLwQDO0czW}
+```
+
+***9.home sweet home***
+
+In this challenge, /challenge/run will write a copy of the flag to any file you specify as an argument on the commandline, with these constraints:
+
+1.Your argument must be an absolute path.
+2.The path must be inside your home directory.
+3.Before expansion, your argument must be three characters or less.
+Due to rules and constraints path between home directory and argument is less than 3 characters there ~/d command was used. 
+
+``` Connected!
+hacker@paths~home-sweet-home:~$ /challenge/run ~/d
+Writing the file to /home/hacker/d!
+... and reading it back to you:
+pwn.college{g9clYHIzWwpQ4OVkHblWVD_YZIx.dNzM4QDLwQDO0czW}
+```
+
+
+
