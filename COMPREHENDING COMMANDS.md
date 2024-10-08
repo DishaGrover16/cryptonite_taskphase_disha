@@ -71,3 +71,42 @@ pwn.college{QRZrcpz8cQACtvFkFX9-o67-NF4.dBzM4QDLwQDO0czW}
 
 ***7.removing files***
 
+In Linux, you remove files with the rm command. In this challenge the file delete_me had to be removed, so i first listed all the files and then used ```rm delete_me``` to delete the files and then listed again to check the result. ```/challenge/run``` command gave me the flag..
+
+```
+Connected!
+hacker@commands~removing-files:~$ ls
+COLLEGE  Desktop  college  d  delete_me  f  myflag
+hacker@commands~removing-files:~$ rm delete_me
+hacker@commands~removing-files:~$ ls
+COLLEGE  Desktop  college  d  f  myflag
+hacker@commands~removing-files:~$ /challenge/check
+Excellent removal. Here is your reward:
+pwn.college{M0MaUys0a_fQk1-j5frAlkBfLZC.dZTOwUDLwQDO0czW}
+```
+
+***8.hidden files***
+
+ls doesn't list all the files by default. Linux has a convention where files that start with a . don't show up by default in ls and in a few other contexts. To view them with ls, you need to invoke ls with the -a flag. Thus after cding into / directory, I listed using command ```ls``` and ```ls-a``` to see the difference. I found a ```.flag-275631971312451``` file which i read using the cat command in order to get my flag.
+
+```
+Connected!
+hacker@commands~hidden-files:~$ cd /
+hacker@commands~hidden-files:/$ ls
+bin        dev   lib    libx32  nix   root  srv  usr
+boot       etc   lib32  media   opt   run   sys  var
+challenge  home  lib64  mnt     proc  sbin  tmp
+hacker@commands~hidden-files:/$ ls -a
+.                      challenge  lib64   proc  tmp
+..                     dev        libx32  root  usr
+.dockerenv             etc        media   run   var
+.flag-275631971312451  home       mnt     sbin
+bin                    lib        nix     srv
+boot                   lib32      opt     sys
+hacker@commands~hidden-files:/$ cat .flag-275631971312451
+pwn.college{8pdSpr6IwwbQ37AzmGYSUNu3RpP.dBTN4QDLwQDO0czW}
+```
+
+***9.An Epic Filesystem Quest***
+
+```
