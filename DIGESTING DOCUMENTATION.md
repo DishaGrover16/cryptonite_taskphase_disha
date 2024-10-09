@@ -172,3 +172,47 @@ pwn.college                                                  May 2024           
 hacker@man~searching-for-manuals:~$ /challenge/challenge --kpbuky 081
 Correct usage! Your flag: pwn.college{kp0bukX8ZEyUNwdn11BxkMmaLZL.dZTM4QDLwQDO0czW}
 ```
+
+***6.Helpful Programs***
+
+ The use of --help on ```/challenge/challenge``` command gave us the info about the ```/challenge/challenge``` . On reading the optional arguments given on the output screen, I first implement ```/challenge/challenge -p``` and on receiving the secret value I implement using g.
+ 
+```
+Connected!
+hacker@man~helpful-programs:~$ /challenge/challenge --help
+usage: a challenge to make you ask for help [-h] [--fortune] [-v] [-g GIVE_THE_FLAG] [-p]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --fortune             read your fortune
+  -v, --version         get the version number
+  -g GIVE_THE_FLAG, --give-the-flag GIVE_THE_FLAG
+                        get the flag, if given the correct value
+  -p, --print-value     print the value that will cause the -g option to give you the flag
+hacker@man~helpful-programs:~$ /challenge/challenge -p
+The secret value is: 634
+hacker@man~helpful-programs:~$ /challenge/challenge -g 634
+Correct usage! Your flag: pwn.college{cZx6wYoKKnEjVgJYXARtDGQoLl3.ddjM4QDLwQDO0czW}
+```
+
+***7.Help for Builtins***
+
+We use help to look for builtins and the challenge command is a shell builtin. Thus help is executed as a command with challenge as its argument. On reading this info, we get the arguments of challenge i.e. ```--secret onjxhisF```. 
+
+```
+Connected!
+hacker@man~help-for-builtins:~$ help challenge
+challenge: challenge [--fortune] [--version] [--secret SECRET]
+    This builtin command will read you the flag, given the right arguments!
+
+    Options:
+      --fortune         display a fortune
+      --version         display the version
+      --secret VALUE    prints the flag, if VALUE is correct
+
+    You must be sure to provide the right value to --secret. That value
+    is "onjxhisF".
+hacker@man~help-for-builtins:~$ challenge --secret onjxhisF
+Correct! Here is your flag!
+pwn.college{onjxhisFvnSPh8wv2q5zoa6I8_a.dRTM5QDLwQDO0czW}
+```
