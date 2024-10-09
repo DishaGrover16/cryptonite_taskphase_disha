@@ -42,7 +42,7 @@ hacker@piping~redirecting-more-output:~$ cat myflag
 
 ***3.Appending Output***
 
-```
+
 
 ***5. Redirecting Input***
 
@@ -61,4 +61,3 @@ pwn.college{IDqvmzmJUrUj3ZDJG43XPfc09g4.dBzN1QDLwQDO0czW}
 
 ***6. Grepping Stored Results***
 
-```
