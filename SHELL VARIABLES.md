@@ -76,4 +76,46 @@ env: ‘pwn.college{oPST-XsYhJUh7ZuXo3oYI_EsL_1.dhTN1QDLwQDO0czW}’: No such fi
 
 ***6.Storing Command Output***
 
+In this challenge, we have to store the output of some command ```/challenge/run``` into a variable ```PWN```. Thus, I first stored the output of /challenge/run in PWN variable and then printed that variable using echo command. This way I got the flag.
+
+```
+Connected!
+hacker@variables~storing-command-output:~$ PWN=$(/challenge/run)
+Congratulations! You have read the flag into the PWN variable. Now print it out
+and submit it!
+hacker@variables~storing-command-output:~$ echo "$PWN"
+pwn.college{kyI3xR9iMtW202xCU6OSzl-54Q0.dVzN0UDLwQDO0czW}
+```
+
+***7.Reading Input***
+
+We use the read function to read input from the user. Thus, I first used the read function in the challenge to assign a value to the variable ```PWN```.
+
+```
+Connected!
+hacker@variables~reading-input:~$ echo $PWN  
+hacker@variables~reading-input:~$ read PWN
+COLLEGE
+You've set the PWN variable properly! As promised, here is the flag:
+pwn.college{459-AzOzhj9vzVPjEpQyZckNjZr.dhzN1QDLwQDO0czW}
+```
+
+***8.Reading Files***
+
+
+In this challenge, I redirected ```/challenge/read_me``` into the standard input of read, and so when ```read``` reads into ```PWN```, it reads from the file. Thus after redirecting, I got the flag.
+
+```
+Connected!
+hacker@variables~reading-files:~$ echo PWN > /challenge/read_me
+ssh-entrypoint: /challenge/read_me: Permission denied
+hacker@variables~reading-files:~$ read PWN < /challenge/read_me
+You've set the PWN variable properly! As promised, here is the flag:
+pwn.college{wFGrdiVxKcFRV5OJomQAeS8_xr2.dBjM4QDLwQDO0czW}
+hacker@variables~reading-files:~$ echo $PWN
+icXEwSPwewJTI4WZjeOeF7zzmBm35cKFcwmrVBqUrPdRfJ
+You've set the PWN variable properly! As promised, here is the flag:
+pwn.college{wFGrdiVxKcFRV5OJomQAeS8_xr2.dBjM4QDLwQDO0czW}
+```
+
 
