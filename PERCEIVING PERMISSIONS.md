@@ -63,6 +63,20 @@ pwn.college{EHGT8UesA2JSnjkElp9mByHhXSD.dJTM2QDLwQDO0czW}
 
 ***6.Permission Tweaking Practice***
 
+``` ```
+
+
+***8.The SUID bit***
+
+In this challenge we had to add the SUID bit to the ```/challenge/getroot``` program in order to spawn a root shell. 
+It means that, regardless of what user runs the program (as long as they have executable permissions), the program will execute as the owner user (in this case, the root user).
+
 ```
-
-
+Connected!
+hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
+hacker@permissions~the-suid-bit:~$ /challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root!
+Here is your shell...
+root@permissions~the-suid-bit:~# cat /flag
+pwn.college{AgoAh1WEzH3edUBbLYQ3t3VgOIZ.dNTM2QDLwQDO0czW}
+```
