@@ -106,3 +106,124 @@ root          91      89  0 06:26 pts/0    00:00:00 ps -f
 Yay, I found another version of me! Here is the flag:
 pwn.college{UF4kMJXkEBUOWzCy8YlhyO2t95n.dVDN4QDLwQDO0czW}
 ```
+
+***5.Resuming Processes***
+
+In this challenge, first the challenge's run was required to be suspended and then resumed so I used ctrl+z and fg respectively. On the execution, I got the flag.
+
+```
+Connected!
+hacker@processes~resuming-processes:~$ /challenge/run
+Let's practice resuming processes! Suspend me with Ctrl-Z, then resume me with
+the 'fg' command! Or just press Enter to quit me!
+^Z
+[1]+  Stopped                 /challenge/run
+hacker@processes~resuming-processes:~$ fg
+/challenge/run
+I'm back! Here's your flag:
+pwn.college{8JmoC4IH747iPkuXRnPnxJ_btm-.dZDN4QDLwQDO0czW}
+```
+
+***6.Backgrouding Processes***
+
+I learned that we can also resume the process in background using bg command. Firstly, I suspended the process in the terminal and resumed it in the background. Then on executing ```/challenge/run```, I got the flag.
+
+```
+hacker@processes~backgrounding-processes:~$ /challenge/run
+I'll only give you the flag if there's already another copy of me running *and
+not suspended* in this terminal... Let's check!
+
+UID          PID STAT CMD
+root          82 S+   bash /challenge/run
+root          84 R+   ps -o user=UID,pid,stat,cmd
+
+I don't see a second me!
+
+To pass this level, you need to suspend me, resume the suspended process in the
+background, and then launch a new version of me! You can background me with
+Ctrl-Z (and resume me in the background with 'bg') or, if you're not ready to
+do that for whatever reason, just hit Enter and I'll exit!
+^Z
+[1]+  Stopped                 /challenge/run
+hacker@processes~backgrounding-processes:~$ bg
+[1]+ /challenge/run &
+
+
+
+Yay, I'm now running the background! Because of that, this text will probably
+overlap weirdly with the shell prompt. Don't panic; just hit Enter a few times
+to scroll this text out.
+hacker@processes~backgrounding-processes:~$ /challenge/run
+I'll only give you the flag if there's already another copy of me running *and
+not suspended* in this terminal... Let's check!
+
+UID          PID STAT CMD
+root          82 S    bash /challenge/run
+root          92 S    sleep 6h
+root          93 S+   bash /challenge/run
+root          95 R+   ps -o user=UID,pid,stat,cmd
+
+Yay, I found another version of me running in the background! Here is the flag:
+pwn.college{sKQ6ttzKdGrhaQSALjeqAL4io9x.ddDN4QDLwQDO0czW}
+```
+
+***7.Foregrounding Processes***
+
+In this challenge, first, we have to suspend the process and then resume it in the background. After doing that we have to foreground it without suspending it. ```fg``` is the command used to foreground whereas ```bg``` is used to resume it in background. On following the above instructions, I got the flag.
+
+```
+Connected!
+hacker@processes~foregrounding-processes:~$ /challenge/run
+To pass this level, you need to suspend me, resume the suspended process in the
+background, and *then* foreground it without re-suspending it! You can
+background me with Ctrl-Z (and resume me in the background with 'bg') or, if
+you're not ready to do that for whatever reason, just hit Enter and I'll exit!
+^Z
+[1]+  Stopped                 /challenge/run
+hacker@processes~foregrounding-processes:~$ bg
+[1]+ /challenge/run &
+
+
+
+Yay, I'm now running the background! Because of that, this text will probably
+overlap weirdly with the shell prompt. Don't panic; just hit Enter a few times
+to scroll this text out. After that, resume me into the foreground with 'fg';
+I'll wait.
+hacker@processes~foregrounding-processes:~$ fg
+/challenge/run
+YES! Great job! I'm now running in the foreground. Hit Enter for your flag!
+
+pwn.college{MnYWpgOHO79FPrNbgU-vdbIlaU9.dhDN4QDLwQDO0czW}
+```
+
+***8.Starting Background Processes***
+
+We don't have to suspend processes to background them: instead, we can start the background right off after appending a ```&``` to the command. Therefore, I used a & after the command /challenge/run to start it in the background.
+
+```
+Connected!
+hacker@processes~starting-backgrounded-processes:~$ /challenge/run &
+[1] 82
+
+hacker@processes~starting-backgrounded-processes:~$ Yay, you started me in the background! Because of that, this text will probably
+overlap weirdly with the shell prompt, but you're used to that by now...
+
+Anyways! Here is your flag!
+```
+
+***9.Process Exit Codes***
+
+We learned that commands that succeed typically return 0 and commands that fail typically return a non-zero value, most commonly 1 but sometimes an error code that identifies a specific failure mode. In this challenge on running the command ```/challenge/get-code``` we received an error code and when I checked the command returned 194 which is a non-zero number and thus our command failed. On further following instructions I executed ```/challenge/submit-code 194``` which is the correct command and thus it also returned flag and 1 upon checking.
+
+```
+Connected!
+hacker@processes~process-exit-codes:~$ /challenge/get-code
+Exiting with an error code!
+hacker@processes~process-exit-codes:~$ echo $?
+194
+hacker@processes~process-exit-codes:~$ /challenge/submit-code 194
+CORRECT! Here is your flag:
+pwn.college{A9NtUKp1fJ5BfH5noY7YQ19VUaa.dljN4UDLwQDO0czW}
+hacker@processes~process-exit-codes:~$ echo $?
+0
+```
