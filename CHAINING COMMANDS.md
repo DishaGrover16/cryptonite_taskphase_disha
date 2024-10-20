@@ -13,3 +13,11 @@ pwn.college{Mop8FqbAMY4M11UpRlXxF2VsGNK.dVTN4QDLwQDO0czW}
 ```
 
 ***2.Your First Shell Script***
+
+```
+Connected!
+hacker@chaining~your-first-shell-script:~$ echo "/challenge/pwn;/challenge/college">x.sh
+hacker@chaining~your-first-shell-script:~$ bash x.sh
+Great job, you've written your first shell script! Here is the flag:
+pwn.college{o3otx6zs3lqK9aFo1Jp9QG3MZlE.dFzN4QDLwQDO0czW}
+```
