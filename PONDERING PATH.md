@@ -33,6 +33,7 @@ pwn.college{cAJnwYBMN_6o--7eFELlwfwJjy8.dVzNyUDLwQDO0czW}
 
 ***3.Adding Commands***
 
+As we have learned the echo command in Linux is a built-in command that allows users to display lines of text or strings that are passed as arguments. It is commonly used in shell scripts and batch files to output status text to the screen or a file. In this challenge, we had to overwrite PATH with the directory having win. On doing that, when ```/challenge/run``` command is executed win is invoked. Then we used the echo command on PATH. Further, I created an empty file called win. Then on running ```cat /flag```, I got the flag.
 
 ```
 Connected!
@@ -47,5 +48,9 @@ root@path~adding-commands:~# echo $PATH
 root@path~adding-commands:~# touch win
 root@path~adding-commands:~# cat /flag
 pwn.college{00-uQ0LjDyL28VFunAAJmvsKasY.dZzNyUDLwQDO0czW}
+```
+
+***4.Hijacking Commands***
+
 ```
 
