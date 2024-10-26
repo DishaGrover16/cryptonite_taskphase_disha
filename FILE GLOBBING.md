@@ -16,7 +16,7 @@ pwn.college{ohZQBT7mMp8qWB3UNyqQjTS8PoA.dFjM4QDLwQDO0czW}
 
 ***2.Matching with ?***
 
-As we studied that when the shell encounters a ? character in any argument, the shell will treat it as single-character wildcard. This works like *, but only matches one character. Thus for changing directories I executed ```cd /?ha??enge``` and ran the ```/challenge/run``` command from the directory to get the flag.
+As we studied that when the shell encounters a ? character in any argument, the shell will treat it as single-character wildcard. <u>This works like *, but only matches one character.</u> Thus for changing directories I executed ```cd /?ha??enge``` and ran the ```/challenge/run``` command from the directory to get the flag.
 
 ```
 Connected!
