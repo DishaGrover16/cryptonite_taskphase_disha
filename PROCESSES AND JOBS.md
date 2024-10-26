@@ -3,7 +3,9 @@
 ***1.Listing Processes***
 
 In this challenge, we had to find /challenge/run file under a random filename so after using commands ```ps -ef```
-and ```ps -aux``` as both show commands. After reading the output, I found a command similar to /challenge/run and when I ran it, I got the flag.
+and ```ps -aux``` as both show commands. "Standard" Syntax: in this syntax, you can use -e to list "every" process and -f for a "full format" output, including arguments. These can be combined into a single argument -ef.
+
+"BSD" Syntax: in this syntax, you can use a to list processes for all users, x to list processes that aren't running in a terminal, and u for a "user-readable" output. These can be combined into a single argument aux. After reading the output, I found a command similar to /challenge/run and when I ran it, I got the flag.
 
 ```
 Connected!
